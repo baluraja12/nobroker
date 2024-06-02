@@ -1,11 +1,10 @@
 package com.nobroker.entity;
 
 import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
 
 @Entity
 @Data
@@ -18,8 +17,9 @@ public class User {
     private long Id;
     private String name;
     private String email;
-    private String mobile;
     private String password;
+    private String mobile;
+    private boolean emailVerified;
 
     public long getId() {
         return Id;
@@ -45,6 +45,14 @@ public class User {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getMobile() {
         return mobile;
     }
@@ -53,11 +61,11 @@ public class User {
         this.mobile = mobile;
     }
 
-    public String getPassword() {
-        return password;
+    public boolean isEmailVerified() {
+        return emailVerified;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEmailVerified(boolean emailVerified) {
+        this.emailVerified = emailVerified;
     }
 }
