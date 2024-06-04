@@ -7,21 +7,23 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-
     @Autowired
     private UserRepository userRepository;
-
 
     public User registrationUser(User user) {
         return userRepository.save(user);
     }
-
     public User getUserByEmail(String email) {
        return userRepository.findByEmail(email);
     }
-
     public void verifyEmail(User user) {
         user.setEmailVerified(true);
         userRepository.save(user);
+    }
+
+    public boolean isEmailVerified(String email) {
+        User user = userRepository.findByEmail(email);
+        return user != null && user.isEmailVerified();
+
     }
 }

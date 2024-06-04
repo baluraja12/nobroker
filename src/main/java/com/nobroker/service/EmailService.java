@@ -25,7 +25,6 @@ public class EmailService {
         //Save the otp for later verification
         emailOtpMapping.put(email, otp);
         sendEmail(email,"OTP for Email Verification", "Your OTP is: "+otp);
-
         Map<String, String> response = new HashMap<>();
         response.put("status", "sucsess");
         response.put("message", "OTP send to successfully");
